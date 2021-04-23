@@ -11,77 +11,34 @@ class MyApp extends StatelessWidget {
     player.play('assets_note$noteNumber.wav');
   }
 
+  Expanded buildKey({Color color, int soundNote}) {
+    return Expanded(
+      child: MaterialButton(
+        color: color,
+        onPressed: () {
+          playSound(soundNote);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: SafeArea(
-          child: Center(
-            child: Expanded(
-              child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.red,
-                      onPressed: () {
-                        playSound(1);  
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.orange,
-                      onPressed: () {
-                        playSound(2);
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.yellow,
-                      onPressed: () {
-                        playSound(3);
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.green,
-                      onPressed: () {
-                        playSound(4);
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.teal,
-                      onPressed: () {
-                        playSound(5);
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.blue,
-                      onPressed: () {
-                        playSound(6);
-                      },
-                    ),
-                  ),
-                  Expanded(
-                    child: MaterialButton(
-                      color: Colors.purple,
-                      onPressed: () {
-                        playSound(7);
-                      },
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              buildKey(color: Colors.red, soundNote: 1),
+              buildKey(color: Colors.orange, soundNote: 2),
+              buildKey(color: Colors.yellow, soundNote: 3),
+              buildKey(color: Colors.green, soundNote: 4),
+              buildKey(color: Colors.teal, soundNote: 5),
+              buildKey(color: Colors.blue, soundNote: 6),
+              buildKey(color: Colors.purple, soundNote: 7),
+            ],
           ),
         ),
       ),

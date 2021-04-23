@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   }
 
   Expanded buildKey({Color color, int soundNote}) {
-    return Expanded(
+    return Expanded(      
       child: MaterialButton(
         color: color,
         onPressed: () {
